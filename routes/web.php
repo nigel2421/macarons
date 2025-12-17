@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = DB::table('products')->get();
+    return view('welcome', ['products' => $products]);
 });
